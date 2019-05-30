@@ -17,7 +17,7 @@ import { HomeComponent } from './home/home.component';
       },
       {
         path: 'nyan',
-        loadChildren: './nyan/nyan.module#NyanModule'
+        loadChildren: () => import('./nyan/nyan.module').then(m => m.NyanModule)
       }
     ])
   ],
