@@ -4,9 +4,10 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from '../home/home.component';
+import { NyanComponent } from './nyan/nyan.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, NyanComponent],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
@@ -16,7 +17,7 @@ import { HomeComponent } from '../home/home.component';
       },
       {
         path: 'nyan',
-        loadChildren: () => import('./nyan/nyan.module').then(m => m.NyanModule)
+        component: NyanComponent
       }
     ])
   ],
