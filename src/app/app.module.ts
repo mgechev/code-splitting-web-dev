@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
-import { HomeComponent } from '../home/home.component';
+import { HomeComponent } from './home/home.component';
 import { NyanComponent } from './nyan/nyan.component';
 
 @NgModule({
