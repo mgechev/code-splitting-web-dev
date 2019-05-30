@@ -13,7 +13,8 @@ import { NyanComponent } from './nyan/nyan.component';
     RouterModule.forRoot([
       {
         path: '',
-        component: HomeComponent
+        component: HomeComponent,
+        pathMatch: 'full'
       },
       {
         path: 'nyan',
