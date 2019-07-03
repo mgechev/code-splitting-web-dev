@@ -5,6 +5,12 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 
+class Throttle {
+  resolve() {
+    return new Promise(resolve => setTimeout(resolve, 500));
+  }
+}
+
 @NgModule({
   declarations: [AppComponent, HomeComponent],
   imports: [
@@ -17,11 +23,15 @@ import { HomeComponent } from './home/home.component';
       },
       {
         path: 'nyan',
-        loadChildren: () => import('./nyan/nyan.module').then(m => m.NyanModule)
+        loadChildren: () => import('./nyan/nyan.module').then(m => m.NyanModule),
+        // Introduced for an artificial delay
+        resolve: {
+          Throttle
+        }
       }
     ])
   ],
-  providers: [],
+  providers: [Throttle],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

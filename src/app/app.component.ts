@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router, RouteConfigLoadStart, RouteConfigLoadEnd, RouterEvent } from '@angular/router';
+import { Router, RouterEvent, NavigationEnd, NavigationStart } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -14,9 +14,9 @@ export class AppComponent {
 
     router.events.subscribe(
       (event: RouterEvent): void => {
-        if (event instanceof RouteConfigLoadStart) {
+        if (event instanceof NavigationStart) {
           this.loading = true;
-        } else if (event instanceof RouteConfigLoadEnd) {
+        } else if (event instanceof NavigationEnd) {
           this.loading = false;
         }
       }
