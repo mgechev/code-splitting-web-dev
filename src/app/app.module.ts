@@ -1,11 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Injectable } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 
-class Throttle {
+@Injectable()
+export class Throttle {
   resolve() {
     return new Promise(resolve => setTimeout(resolve, 500));
   }
